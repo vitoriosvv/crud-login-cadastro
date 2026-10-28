@@ -1,0 +1,119 @@
+.cadastro-main {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    max-width: 500px;
+    width: 90%;
+    margin: 2rem auto;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.cadastro-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cadastro-header h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #a0aec0;
+}
+
+.cadastro-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: rgb(5, 180, 160);
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.campo-grupo label {
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.campo-grupo .campo-senha {
+    width: 100%;
+}
+
+.campo-grupo .campo-senha input {
+    width: 100%;
+}
+
+.termos-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    margin-top: 0.5rem;
+}
+
+.termos-content input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+    accent-color: rgb(5, 116, 104);
+}
+
+.botoes-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#btnCadastrar,
+#btnLimpar {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+#btnCadastrar {
+    background-color: rgb(5, 116, 104);
+    color: #ffffff;
+}
+
+#btnCadastrar:hover {
+    background-color: rgb(4, 94, 84);
+}
+
+#btnLimpar {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#btnLimpar:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.login-link-container {
+    text-align: center;
+    margin-top: 1.2rem;
+}
+
+.login-link-container a {
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.login-link-container a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
