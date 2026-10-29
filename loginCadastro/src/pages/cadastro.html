@@ -11,65 +11,75 @@
 </head>
 
 <body>
-    <main class="cadastro-main">
-        <div class="cadastro-header">
+    <div class="conect-container">
+        <div class="descript-content">
             <img src="../img/icons/iconTechInova.svg" alt="Icone TechInova" class="iconTechInova">
-            <h3>Experimente os privilégios de usar nosso site!</h3>
-            <h1>Faça seu Cadastro</h1>
-        </div>
-
-        <form id="cadastroForm" action="#">
-            <div class="campo-grupo">
-                <label for="username">Nome:</label>
-                <input type="text" id="username" name="username" placeholder="Digite seu nome" required>
-            </div>
-
-            <div class="campo-grupo">
-                <label for="useruni">CPF:</label>
-                <input type="text" id="useruni" name="useruni" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" required>
-            </div>
-
-            <div class="campo-grupo">
-                <label for="datanasc">Data de Nascimento:</label>
-                <input type="date" id="datanasc" name="datanasc" required>
-            </div>
-
-            <div class="campo-grupo">
-                <label for="useremail">Email:</label>
-                <input type="email" id="useremail" name="useremail" placeholder="seuemail@gmail.com" required>
-            </div>
-
-            <div class="campo-grupo">
-                <label for="usersenha1">Senha:</label>
-                <span class="campo-senha">
-                    <input type="password" id="usersenha1" name="usersenha1" placeholder="Crie sua senha" required>
-                    <button type="button" class="mostrar-senha" data-alvo="usersenha1" aria-label="Mostrar senha" aria-pressed="false"></button>
-                </span>
-            </div>
-
-            <div class="campo-grupo">
-                <label for="usersenha2">Confirme sua senha:</label>
-                <span class="campo-senha">
-                    <input type="password" id="usersenha2" name="usersenha2" placeholder="Confirme sua senha" required>
-                    <button type="button" class="mostrar-senha" data-alvo="usersenha2" aria-label="Mostrar senha" aria-pressed="false"></button>
-                </span>
-            </div>
-
-            <div class="termos-content">
-                <input type="checkbox" id="termos" required>
-                <label for="termos">Eu li e concordo com os termos de uso</label>
-            </div>
-
-            <div class="botoes-container">
-                <button type="reset" id="btnLimpar">Limpar</button>
-                <button type="submit" id="btnCadastrar">Cadastrar</button>
-            </div>
-
+            <h1>Junte-se a nós</h1>
+            <h2>Experimente os privilégios de usar nosso site!</h2>
             <div class="login-link-container">
                 <a href="../index.html">Já possuo cadastro</a>
             </div>
-        </form>
-    </main>
+        </div>
+
+        <main class="cadastro-main">
+            <div class="cadastro-header">
+                <h3>CADASTRO</h3>
+                <h1>Criar Conta</h1>
+            </div>
+
+            <form id="cadastroForm" action="#">
+                <div class="campo-grupo">
+                    <label for="username">Nome:</label>
+                    <input type="text" id="username" name="username" placeholder="Digite seu nome" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="useruni">CPF:</label>
+                    <input type="text" id="useruni" name="useruni" inputmode="numeric" maxlength="14"
+                        placeholder="000.000.000-00" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="datanasc">Data de Nascimento:</label>
+                    <input type="date" id="datanasc" name="datanasc" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="useremail">Email:</label>
+                    <input type="email" id="useremail" name="useremail" placeholder="seuemail@gmail.com" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="usersenha1">Senha:</label>
+                    <span class="campo-senha">
+                        <input type="password" id="usersenha1" name="usersenha1" placeholder="Crie sua senha" required>
+                        <button type="button" class="mostrar-senha" data-alvo="usersenha1" aria-label="Mostrar senha"
+                            aria-pressed="false"></button>
+                    </span>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="usersenha2">Confirme sua senha:</label>
+                    <span class="campo-senha">
+                        <input type="password" id="usersenha2" name="usersenha2" placeholder="Confirme sua senha"
+                            required>
+                        <button type="button" class="mostrar-senha" data-alvo="usersenha2" aria-label="Mostrar senha"
+                            aria-pressed="false"></button>
+                    </span>
+                </div>
+
+                <div class="termos-content">
+                    <input type="checkbox" id="termos" required>
+                    <label for="termos">Eu li e concordo com os termos de uso</label>
+                </div>
+
+                <div class="botoes-container">
+                    <button type="reset" id="btnLimpar">Limpar</button>
+                    <button type="submit" id="btnCadastrar">Cadastrar</button>
+                </div>
+            </form>
+        </main>
+    </div>
 </body>
 
 </html>
