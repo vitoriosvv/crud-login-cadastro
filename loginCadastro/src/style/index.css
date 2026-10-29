@@ -1,4 +1,3 @@
-/* #001c2b e #057468 */
 body {
     margin: 0;
     padding: 0;
@@ -10,14 +9,10 @@ body {
     align-items: center;
 }
 
-.iconTechInova{
-/* aqui eu acharia bom tu aumentar um pouco mais a logo da InovaTech */
-}
-
 .conect-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: stretch;
     max-width: 1000px;
     width: 100%;
     padding: 2rem;
@@ -25,13 +20,12 @@ body {
 
 .descript-content {
     background: rgba(0, 10, 20, 0.4);
-    padding-top: 3.8rem;
-    padding-bottom: 6.3rem;
-    padding-left: 5rem;
-    margin-left: 5rem;
+    padding: 3rem;
     border-radius: 6px 0 0 6px;
-    border: 1px solid rgba(5, 116, 104, 0.4);
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .descript-content h1 {
@@ -39,12 +33,14 @@ body {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: #ffffff;
+    margin-left: 3rem;
 }
 
 .descript-content h2 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     color: rgb(5, 116, 104);
+    margin-left: 3rem;
 }
 
 .descript-content a {
@@ -52,6 +48,8 @@ body {
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.2s;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
 }
 
 .descript-content a:hover {
@@ -66,14 +64,18 @@ body {
     max-height: 120px;
     height: auto;
     object-fit: contain;
-    margin-bottom: 0rem;
+    margin-bottom: 1rem;
+    margin-left: 1.2rem;
 }
 
 .form-content {
     background: rgba(255, 255, 255, 0.05);
-    padding: 5.55rem;
+    padding: 3rem;
     border-radius: 0 12px 12px 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 form {
@@ -82,7 +84,7 @@ form {
     gap: 1.2rem;
 }
 
-.user-content, 
+.user-content,
 .pass-content {
     display: flex;
     flex-direction: column;
@@ -129,8 +131,7 @@ form input:focus {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s;
-    transition: border-color ease-in-out 0.4s;
+    transition: background-color 0.2s, border-color ease-in-out 0.4s;
 }
 
 #btnEntrar:hover {
