@@ -25,3 +25,20 @@ if (loginForm) {
         alert('Login realizado com sucesso!');
     });
 }
+
+const form = document.querySelector(".form");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.querySelector('.useremail').value;
+    const senha = document.getElementById('password').value;
+
+    await fetch('/api/temp-data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, senha })
+    });
+
+    window.location.href = '../pages/cadastro.html'
+});
