@@ -40,5 +40,9 @@ form.addEventListener("submit", async (e) => {
         body: JSON.stringify({ email, senha })
     });
 
-    window.location.href = '../pages/cadastro.html'
+    setTimeout(() => {
+        window.location.href = '../pages/register.html'
+    }, 2000);
 });
+
+// Criar .env

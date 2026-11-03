@@ -1,30 +1,112 @@
-/* Sequência confecção dos arquivos cadastro.js e register.js*/
-/* -cadastro.js:
-    1- Fazer array para guardar dados originais;
-    2- Usar do método window em um evento de clique de carregamento de dados DOM
-    para guardar de forma assíncrona os dados res em json;
-    3- Puxamos novamente o form fora evento click, para comparar em evento de submit:
-    o que foi digitado com o que já havia sido digitado;
-    4- Se houver igualdade prossegue para guardar em await fetch em uma variável,
-    como JSON.strigify
-    5- Após var estar concluída, redireciona por window.location.href para register.html,
-    com else caso não se conclua
-*/
-/* -register.js:
-    1- Em uma async function, faz busca no mysql por await fetch em uma var e await res em outra;
-    2- Seleciona ul pré-existente no html, limpa para evitar duplicação;
-    3- Percorre o que foi digitado por usuários, cria documento li e imprime conteúdo interno à li:
-    `
-            <span>ID: ${user.id} | Nome: ${user.nome} - E-mail: ${user.email}</span>
-            <div class="acoes-div"> <!-- Sua div existente -->
-                <button onclick="deletarRegistro(${user.id})" class="btn-excluir">Excluir</button>
-            </div>
-        `
-    4- Define il como append.child de ul;
-    5- Saindo do async, faz outra async para deletar dados por id começando por:
-    - if de confirmação de deletação
-    - se confirmado faz await fetch com método necessário
-    - atualiza lista;
-    6- Executa Listagem com página aberta, com window e eventListener sseguido de:
-    - carregamento conteúdos DOM e chamada da função async de início
-*/
+import express from 'express';
+import mysql from 'mysql2';
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+
+// Middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, 'src')));
+
+const db = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
+});
+
+db.connect((err) => {
+    if (err) {
+        console.error('Erro ao conectar ao MySQL:', err);
+        return;
+    }
+    console.log('Conectado ao MySQL com sucesso!');
+});
+
+// Rota de Cadastramento
+app.post('/api/cadastrar', (req, res) => {
+    const { email, senha } = req.body;
+
+    const sql = 'INSERT INTO usuarios (email, senha) VALUES (?, ?)';
+    
+    db.query(sql, [email, senha], (err, result) => {
+        if (err) {
+            if (err.errno === 1062) {
+                return res.status(400).json({ sucesso: false, mensagem: 'Este e-mail já está cadastrado!' });
+            }
+            return res.status(500).json({ sucesso: false, mensagem: 'Erro interno no servidor.' });
+        }
+        
+        return res.json({ sucesso: true, mensagem: 'Cadastro realizado com sucesso!' });
+    });
+});
+
+// Rota Listagem
+app.get('/api/usuarios', (req, res) => {
+    db.query('SELECT id, email FROM usuarios', (err, results) => {
+        if (err) {
+            return res.status(500).json([]);
+        }
+        res.json(results);
+    });
+});
+
+// Rota Verificação
+app.post('/api/usuarios/verificar-senha', (req, res) => {
+    const { id, senha } = req.body;
+    
+    db.query('SELECT * FROM usuarios WHERE id = ? AND senha = ?', [id, senha], (err, results) => {
+        if (err) {
+            return res.status(500).json({ sucesso: false, mensagem: 'Erro no servidor.' });
+        }
+        if (results.length > 0) {
+            res.json({ valido: true });
+        } else {
+            res.json({ valido: false, mensagem: 'Senha incorreta!' });
+        }
+    });
+});
+
+//  Rota Atualização Dados
+app.put('/api/usuarios/:id', (req, res) => {
+    const { id } = req.params;
+    const { email, senha } = req.body;
+
+    const sql = 'UPDATE usuarios SET email = ?, senha = ? WHERE id = ?';
+    
+    db.query(sql, [email, senha, id], (err, result) => {
+        if (err) {
+            if (err.errno === 1062) {
+                return res.status(400).json({ sucesso: false, mensagem: 'Este e-mail já pertence a outro usuário!' });
+            }
+            return res.status(500).json({ sucesso: false, mensagem: 'Erro ao atualizar registro.' });
+        }
+        res.json({ sucesso: true, mensagem: 'Registro atualizado com sucesso!' });
+    });
+});
+
+// Rota Exclusão de usuário via ID
+app.delete('/api/usuarios/:id', (req, res) => {
+    const { id } = req.params;
+    
+    db.query('DELETE FROM usuarios WHERE id = ?', [id], (err, result) => {
+        if (err) {
+            return res.status(500).json({ sucesso: false, mensagem: 'Erro ao excluir registro.' });
+        }
+        res.json({ sucesso: true, mensagem: 'Registro excluído com sucesso!' });
+    });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
