@@ -67,6 +67,7 @@ body {
 }
 
 .cadastro-main {
+    position: relative;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0 12px 12px 0;
@@ -96,6 +97,149 @@ body {
     margin: 0;
     font-size: 1.8rem;
     color: #ffffff;
+}
+
+/* BRILHO PASSANDO */
+@keyframes show {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(50px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+/* LINHA CENTRAL COM BRILHO SUTIL */
+.cadastro-main::before,
+.form-content::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 2px;
+    height: 70px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(5, 116, 104, 0.5) 20%,
+        rgba(255, 255, 255, 0.95) 50%,
+        rgba(5, 116, 104, 0.5) 80%,
+        transparent 100%
+    );
+    filter: drop-shadow(0 0 6px rgba(5, 116, 104, 0.8)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 2;
+    animation: shine 4s ease-in-out infinite;
+}
+
+/* BRILHO PASSANDO NA LINHA VERTICAL (Estritamente dentro do campo) */
+@keyframes shine {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+    10% {
+        top: 15px;
+        opacity: 1;
+    }
+    70% {
+        top: calc(100% - 85px);
+        opacity: 1;
+    }
+    80% {
+        top: calc(100% - 70px);
+        opacity: 0;
+    }
+    100% {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+/* BRILHO HORIZONTAL ORIGINAL (Para botões ou cards) */
+@keyframes shineHorizontal {
+    from {
+        left: -80%;
+    }
+    to {
+        left: 150%;
+    }
+}
+
+@keyframes moveLight {
+
+    0% {
+
+        transform: translate(0, 0);
+
+    }
+
+    50% {
+
+        transform: translate(-100px, 80px);
+
+    }
+
+    100% {
+
+        transform: translate(0, 0);
+
+    }
+
+}
+
+@keyframes moveLight2 {
+
+    0% {
+
+        transform: translate(0, 0);
+
+    }
+
+    50% {
+
+        transform: translate(120px, -70px);
+
+    }
+
+    100% {
+
+        transform: translate(0, 0);
+
+    }
+
 }
 
 form {
