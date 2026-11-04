@@ -44,5 +44,3 @@ form.addEventListener("submit", async (e) => {
         window.location.href = '../pages/register.html'
     }, 2000);
 });
-
-// Criar .env
