@@ -22,8 +22,8 @@ body {
     background: rgba(0, 10, 20, 0.4);
     padding: 3.7rem 5rem;
     border-radius: 6px 0 0 6px;
-    /* border: 1px solid rgba(5, 116, 104, 0.4); */
-    color: #ffffff;
+    border: 1px solid rgba(5, 116, 104, 0.4);
+    color: #F5F5DC;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@ body {
     margin-top: 0;
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: #ffffff;
+    color: #F5F5DC;
 }
 
 .descript-content h2 {
@@ -52,7 +52,7 @@ body {
 }
 
 .login-link-container a:hover {
-    color: #ffffff;
+    color: #F5F5DC;
     text-decoration: underline;
 }
 
@@ -74,7 +74,7 @@ body {
     padding: 3.7rem 4rem;
     width: 100%;
     box-sizing: border-box;
-    color: #ffffff;
+    color: #F5F5DC;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,7 +96,7 @@ body {
 .cadastro-header h1 {
     margin: 0;
     font-size: 1.8rem;
-    color: #ffffff;
+    color: #F5F5DC;
 }
 
 /* BRILHO PASSANDO */
@@ -265,7 +265,7 @@ form input {
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(0, 0, 0, 0.2);
-    color: #ffffff;
+    color: #F5F5DC;
     padding: 0.65rem 0.75rem;
     border-radius: 6px;
     outline: none;
@@ -352,7 +352,7 @@ form input:focus {
 
 #btnCadastrar {
     background-color: rgb(5, 116, 104);
-    color: #ffffff;
+    color: #F5F5DC;
 }
 
 #btnCadastrar:hover {
